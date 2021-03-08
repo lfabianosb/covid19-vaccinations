@@ -64,6 +64,7 @@ loadCSV().then((data) => {
               total_vaccinations_per_hundred: obj.total_vaccinations_per_hundred ? Number(obj.total_vaccinations_per_hundred) : 0,
               people_vaccinated_per_hundred: obj.people_vaccinated_per_hundred ? Number(obj.people_vaccinated_per_hundred) : 0,
               people_fully_vaccinated_per_hundred: obj.people_fully_vaccinated_per_hundred ? Number(obj.people_fully_vaccinated_per_hundred) : 0,
+              daily_vaccinations: obj.daily_vaccinations ? Number(obj.daily_vaccinations) : 0,
             });
           }
         }
@@ -73,42 +74,3 @@ loadCSV().then((data) => {
     _run();
   });
 });
-
-// csv()
-// .fromFile(csvFilePath)
-// .then((jsonObj) => {
-//   let location = '';
-//   let countryList = {};
-//   const _run = async () => {
-//     for(let obj of jsonObj) {
-//       if (isValidRow(obj)) {
-//         if (location !== obj.location) {
-//           location = obj.location;
-//           const alpha2Code = await fetchIsoAlpha2Code(obj.iso_code);
-//           console.log('alpha2Code', alpha2Code);
-//           countryList[location] = {
-//             iso_code: alpha2Code,
-//             flag: `https://flagpedia.net/data/flags/normal/${alpha2Code}.png`,
-//             data: [],
-//           };
-//         }
-//         if (countryList[location]?.data) {
-//           countryList[location].data.push({
-//             date: obj.date,
-//             total_vaccinations: obj.total_vaccinations ? Number(obj.total_vaccinations) : 0,
-//             people_vaccinated: obj.people_vaccinated ? Number(obj.people_vaccinated) : 0,
-//             people_fully_vaccinated: obj.people_fully_vaccinated ? Number(obj.people_fully_vaccinated) : 0,
-//             total_vaccinations_per_hundred: obj.total_vaccinations_per_hundred ? Number(obj.total_vaccinations_per_hundred) : 0,
-//             people_vaccinated_per_hundred: obj.people_vaccinated_per_hundred ? Number(obj.people_vaccinated_per_hundred) : 0,
-//             people_fully_vaccinated_per_hundred: obj.people_fully_vaccinated_per_hundred ? Number(obj.people_fully_vaccinated_per_hundred) : 0,
-//           });
-//         }
-//       }
-//     }
-//     safeToFile(countryList);
-//   };
-//   _run();
-// });
- 
-// Async / await usage
-// const jsonArray=await csv().fromFile(csvFilePath);
