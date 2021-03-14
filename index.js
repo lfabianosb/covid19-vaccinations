@@ -30,10 +30,13 @@ const fetchIsoAlpha2Code = async (alpha3Code) => {
 };
 
 const safeToFile = (data) => {
-  console.log('data', Object.keys(data));
-  fs.writeFile('covid19-vaccines.json', JSON.stringify(data), 'utf8', () => {
-    console.log('count', count);
-  });
+  if (data) {
+    fs.writeFile('covid19-vaccines.json', JSON.stringify(data), 'utf8', () => {
+      console.log('count', count);
+    });
+  } else {
+    console.log('No data');
+  }
 };
 
 loadCSV().then((data) => {
